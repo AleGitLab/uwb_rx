@@ -17,13 +17,13 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-entity Pos_PU is
+entity pos_pu is
   
   generic (
     M    : integer;
     N    : integer;
     NQ   : integer;
-	 logM : integer);
+    logM : integer);
 
   port (
     ck                  : in  std_logic;
@@ -36,9 +36,9 @@ entity Pos_PU is
     mux_ctrl            : in  std_logic_vector(logM-1 downto 0);
     sum_out             : out std_logic_vector(NQ+N-2 downto 0));
 
-end Pos_PU;
+end pos_pu;
 
-architecture struct of Pos_PU is
+architecture struct of pos_pu is
 
   signal int_add_a : std_logic_vector(NQ-1 downto 0);  -- first adder input
   signal int_add_b : std_logic_vector(NQ+N-2 downto 0);  -- second adder input
