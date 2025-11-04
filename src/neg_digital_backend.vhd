@@ -17,6 +17,7 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity neg_digital_backend is
+	
     generic (
       N    : integer ;
       M    : integer ;
@@ -36,6 +37,7 @@ entity neg_digital_backend is
       comp_force_zero           : in  std_logic;    -- active low
       comparator_in_freeze      : in  std_logic;    -- active low
       comparator_out_freeze     : in  std_logic);   -- active low);
+
 end neg_digital_backend;
 
 
@@ -92,10 +94,10 @@ begin  -- architectural
 
   PU_inst : Neg_PU
      generic map (
-       M  => M,
-       N  => N,
-       NQ => NQ,
-		 logM => logM)
+       M  	=> M,
+       N  	=> N,
+       NQ	=> NQ,
+	   logM => logM)
      port map (
        ck             => ck,
        reset          => reset,
@@ -109,14 +111,14 @@ begin  -- architectural
 
   max_det_inst : neg_max_detector
      generic map (
-       M  => M,
-       N  => N,
-       NQ => NQ,
-		 logM => logM)
+       M  	=> M,
+       N  	=> N,
+       NQ 	=> NQ,
+	   logM => logM)
      port map (
        clk             => ck,
        reset           => reset,
-		 comp_force_zero => comp_force_zero,
+	   comp_force_zero => comp_force_zero,
        max_detector_CG => comparator_in_freeze,
        codeout         => codeout_i,
        dataout         => dataout_i,
